@@ -1,4 +1,4 @@
-[nasa.c](https://github.com/user-attachments/files/26667461/nasa.c)
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
