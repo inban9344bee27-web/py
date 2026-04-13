@@ -1,43 +1,39 @@
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-char sort(int,char*name[]);
+#include<iostream>
+using namespace std;
+class addition
+{
+   int f,i;
+   public:
+   void input()
+   {
+      cout<< "Enter the feet:";
+      cin>> f;
+      cout<< "Enter the inch:";
+      cin>> i;
+   }
+   friend void add( addition a, addition b);
+};
+void add( addition a, addition b)
+{
+   int p,q,x,y,z;
+   p=a.f+b.f;
+   q=a.i+b.i;
+   z=q/12;
+   y=q%12;
+   x=p+z;
+   cout<<"Total feet:"<< x<< endl;
+   cout<<"Total inch:"<< y<< endl;
+}
 int main()
 {
-   char *name[20];
-   int i,n;
-   printf("Enter the no. of student in the class");
-   scanf("%d",&n);
-   printf("Enter the name of students in the class one by one");
-   for(i=0;i<n;i++)
-   {
-      name[i]=(char*) calloc(20,sizeof(char));
-      scanf("%s",name[i]);
-   }
-   sort(n,name);
-   printf("Sorted Name is..");
-   for(i=0;i<n;i++)
-   {
-      printf("\n%s",name[i]);
+   addition c,d;
+   c.input();
+   d.input();
+   add( c,d);
+   return 0;
+}
    }
    return 0;
 }
-char sort(int n,char *name[])
-{
-   int i,j;
-   char t[20];
-   for(i=0;i<n-1;i++)
-   {
-      for(j=i+1;j<n;j++)
-      {
-	 if(strcmp(name[i],name[j])>0)
-	 {   
-	 strcpy(t,name[j]);
-	 strcpy(name[j],name[i]);
-	 strcpy(name[i],t);
-	 }
-      }
-   }
-   return(*name[i]);
-}   
+
